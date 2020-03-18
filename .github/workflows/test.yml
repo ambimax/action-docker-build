@@ -14,3 +14,11 @@ jobs:
       - run: yarn
       - run: yarn build
       - run: yarn test
+
+  check-artifacts:
+    name: "Check artifacts"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: yarn --frozen-lockfile
+      - run: yarn check-artifacts
