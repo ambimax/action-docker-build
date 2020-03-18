@@ -12,6 +12,14 @@ inputs:
     required: false
     default: .
 
+  tag:
+    description: |
+      The tag to use for the image.
+
+      Required for dockerfile building.
+    required: false
+    default: docker-image:latest
+
   composefile:
     description: "The docker-compose file to build. Providing this input will ignore: dockerfile, context"
     required: false

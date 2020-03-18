@@ -29,6 +29,8 @@ async function build(inputs: autogen.InputParameters): Promise<void> {
         await exec.exec("docker", [
             "image",
             "build",
+            "-t",
+            inputs.tag,
             "-f",
             inputs.dockerfile,
             inputs.context,

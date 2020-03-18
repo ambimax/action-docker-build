@@ -64,9 +64,11 @@ function generateReadme(): void {
 ${Object.keys(action.inputs)
     .map(
         key =>
-            `| ${key} | ${action.inputs[key].description} | ${!!action.inputs[
-                key
-            ].required} | ${action.inputs[key].default ?? ""} |`,
+            `| ${key} | ${action.inputs[key].description.replace(
+                /\n/g,
+                "<br>",
+            )} | ${!!action.inputs[key].required} | ${action.inputs[key]
+                .default ?? ""} |`,
     )
     .join("\n")}`,
     );
