@@ -1,0 +1,7 @@
+description: |
+  Build a dockerfile from a custom directory.
+
+  **NOTE** The build context will still be the root of the repository.
+
+with:
+  dockerfile: docker/Dockerfile

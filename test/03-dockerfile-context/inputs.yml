@@ -1,0 +1,6 @@
+description: |
+  Build a dockerfile from a custom context.
+
+with:
+  context: packages/hello-world
+  dockerfile: packages/hello-world/Dockerfile

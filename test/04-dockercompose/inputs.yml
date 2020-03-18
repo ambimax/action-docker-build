@@ -1,0 +1,6 @@
+description: |
+  Build a docker-compose.yml.
+
+with:
+  composefile: docker-compose.yml
+  tag: hello-world
