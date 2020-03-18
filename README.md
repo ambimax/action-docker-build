@@ -120,7 +120,7 @@ Once done, commit the dist folder to a new feature branch and create a pull requ
 
 ## License
 
-[MIT](LICENSE.md)
+[MIT](LICENSE)
 
 
 ## Author Information
