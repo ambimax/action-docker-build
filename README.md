@@ -46,7 +46,7 @@ Build a single docker file in the root of the repository.
 
 Build a dockerfile from a custom directory.
 
-```NOTE``` The build context will still be the root of the repository.
+**NOTE** The build context will still be the root of the repository.
 
 
 ```yml
