@@ -71,6 +71,44 @@ ${Object.keys(action.inputs)
     .join("\n")}`,
     );
 
+    const testDir = `${__dirname}/../test`;
+    const tests = fs.readdirSync(testDir);
+
+    readme = replaceMarkdownRegion(
+        readme,
+        "examples",
+        tests
+            .map(test => {
+                const inputs = YAML.parse(
+                    fs.readFileSync(`${testDir}/${test}/inputs.yml`).toString(),
+                );
+
+                return `### [${test.slice(3)}](test/${test})
+
+${inputs.description}
+
+\`\`\`yml
+${YAML.stringify({
+    jobs: {
+        test: {
+            steps: [
+                Object.assign(
+                    {
+                        uses: "ambimax/action-docker-build@v1",
+                    },
+                    ...(Object.keys(inputs.with).length > 0
+                        ? [{ with: inputs.with }]
+                        : []),
+                ),
+            ],
+        },
+    },
+}).slice(25, -1)}
+\`\`\``;
+            })
+            .join("\n\n"),
+    );
+
     fs.writeFileSync(`${rootDir}/README.md`, readme);
 }
 

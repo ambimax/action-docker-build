@@ -25,20 +25,60 @@ on:
       - master
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: ambimax/action-docker-build@v1
+      - uses: actions/checkout@v1
+      - uses: ambimax/action-docker-build@v1
 ```
 
-With a docker-compose file:
+<!-- region:examples start -->
+### [dockerfile](test/01-dockerfile)
 
-```yaml
-    - uses: ambimax/action-docker-build@v1
-      with:
-        composefile: docker-compose.prod.yml
+Build a single docker file in the root of the repository.
+
+```yml
+      - uses: ambimax/action-docker-build@v1
 ```
+
+### [dockerfile-custom](test/02-dockerfile-custom)
+
+Build a dockerfile from a custom directory.
+
+```NOTE``` The build context will still be the root of the repository.
+
+
+```yml
+      - uses: ambimax/action-docker-build@v1
+        with:
+          dockerfile: docker/Dockerfile
+```
+
+### [dockerfile-context](test/03-dockerfile-context)
+
+Build a dockerfile from a custom context.
+
+
+```yml
+      - uses: ambimax/action-docker-build@v1
+        with:
+          context: packages/hello-world
+          dockerfile: packages/hello-world/Dockerfile
+```
+
+### [dockercompose](test/04-dockercompose)
+
+Build a docker-compose.yml.
+
+
+```yml
+      - uses: ambimax/action-docker-build@v1
+        with:
+          composefile: docker-compose.yml
+          tag: hello-world
+```
+<!-- region:examples end -->
 
 
 ## Available parameters

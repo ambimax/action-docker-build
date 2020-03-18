@@ -22,11 +22,11 @@ async function build(inputs: autogen.InputParameters): Promise<void> {
         }
 
         core.startGroup("Build docker-compose file");
-        exec.exec("docker-compose", ["-f", inputs.composefile, "build"]);
+        await exec.exec("docker-compose", ["-f", inputs.composefile, "build"]);
         core.endGroup();
     } else {
         core.startGroup("Build Dockerfile file");
-        exec.exec("docker", [
+        await exec.exec("docker", [
             "image",
             "build",
             "-f",
