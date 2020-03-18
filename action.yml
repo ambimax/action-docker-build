@@ -21,7 +21,7 @@ inputs:
     default: docker-image:latest
 
   composefile:
-    description: "The docker-compose file to build. Providing this input will ignore: dockerfile, context"
+    description: "The docker-compose file to build. Providing this input will ignore: dockerfile, context, tag"
     required: false
 
 branding:

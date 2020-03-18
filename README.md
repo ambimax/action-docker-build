@@ -89,7 +89,7 @@ Build a docker-compose.yml.
 | dockerfile | The Dockerfile to build. | false | Dockerfile |
 | context | The build context to use. | false | . |
 | tag | The tag to use for the image.<br><br>Required for dockerfile building.<br> | false | docker-image:latest |
-| composefile | The docker-compose file to build. Providing this input will ignore: dockerfile, context | false |  |
+| composefile | The docker-compose file to build. Providing this input will ignore: dockerfile, context, tag | false |  |
 <!-- region:parameters end -->
 
 
