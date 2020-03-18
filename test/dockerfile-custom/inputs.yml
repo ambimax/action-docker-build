@@ -1,0 +1,2 @@
+with:
+  dockerfile: docker/Dockerfile

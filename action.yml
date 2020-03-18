@@ -1,0 +1,25 @@
+name: Build a docker image
+description: Build a docker image
+
+inputs:
+  dockerfile:
+    description: The Dockerfile to build.
+    required: false
+    default: Dockerfile
+
+  context:
+    description: The build context to use.
+    required: false
+    default: .
+
+  composefile:
+    description: "The docker-compose file to build. Providing this input will ignore: dockerfile, context"
+    required: false
+
+branding:
+  icon: "gift"
+  color: "blue"
+
+runs:
+  using: "node12"
+  main: "dist/index.js"
