@@ -11,7 +11,7 @@ async function run(): Promise<void> {
 }
 
 async function runTest(test: string): Promise<void> {
-    core.startGroup("Run test - " + test);
+    console.log("Start test:", test);
 
     const cwd = `${__dirname}/../test/${test}`;
     let inputs = YAML.parse(fs.readFileSync(`${cwd}/inputs.yml`).toString());
@@ -39,8 +39,6 @@ async function runTest(test: string): Promise<void> {
             })),
         ),
     });
-
-    core.endGroup();
 }
 
 run().catch(e => {
