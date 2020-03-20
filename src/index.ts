@@ -1,3 +1,4 @@
+import "source-map-support/register";
 import core from "@actions/core";
 import exec from "@actions/exec";
 import * as autogen from "./autogen";
@@ -39,4 +40,4 @@ async function build(inputs: autogen.InputParameters): Promise<void> {
     }
 }
 
-run().catch(core.setFailed);
+run().catch(e => core.setFailed(String(e)));
