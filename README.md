@@ -119,8 +119,8 @@ Build a Dockerfile that needs an image from a private registry.
 | dockerfile | The Dockerfile to build. | false | Dockerfile |
 | composefile | The docker-compose file to build. Providing this input will ignore: dockerfile, context, tag | false |  |
 | context | The build context to use. | false | . |
-| tag | The tag to use for the image.<br><br>Required for dockerfile building.<br>In @v2 you can use 'tags' to set multiple tags.<br> | false | docker-image:latest |
-| tags | From @v2 on. If you want to use multiple tags for the image.<br><br>Required for dockerfile building.<br> | false |  |
+| tag | The tag to use for the image.<br><br>Required for dockerfile building.<br> | false | docker-image:latest |
+| tags | To use multiple tags for the image.<br>Use '|' and line breaks.<br>Required for dockerfile building if no 'tag' property is provided.<br> | false |  |
 | registry | The private registry that is referenced in a Dockerfile or docker-compose.yml. Required with `username` and `password`. | false |  |
 | username | The login username for the private registry. Required with `registry` and `password`. | false |  |
 | password | The login password for the private registry. Required with `registry` and `username`. | false |  |

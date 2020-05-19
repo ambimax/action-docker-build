@@ -21,15 +21,14 @@ inputs:
       The tag to use for the image.
 
       Required for dockerfile building.
-      In @v2 you can use 'tags' to set multiple tags.
     required: false
     default: docker-image:latest
 
   tags:
     description: |
-      From @v2 on. If you want to use multiple tags for the image.
-
-      Required for dockerfile building.
+      To use multiple tags for the image.
+      Use '|' and line breaks.
+      Required for dockerfile building if no 'tag' property is provided.
     required: false
 
   registry:
