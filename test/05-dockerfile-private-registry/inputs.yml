@@ -1,0 +1,9 @@
+description: |
+  Build a Dockerfile that needs an image from a private registry.
+
+with:
+  dockerfile: dockerfiles/Dockerfile.fpm
+  tag: node-exec-opt-app-index
+  registry: docker-registry.ambimax.xyz
+  username: test
+  password: test

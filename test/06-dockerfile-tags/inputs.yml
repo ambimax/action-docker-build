@@ -1,0 +1,9 @@
+description: |
+  Build an image from a Dockerfile with multiple tags.
+
+with:
+  dockerfile: dockerfiles/Dockerfile
+  tags: |
+    hello-world:latest
+    hello-world:c0ffee
+    hello-world:f00babe
