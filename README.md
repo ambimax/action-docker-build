@@ -96,7 +96,7 @@ Build a Dockerfile that needs an image from a private registry.
 
 ### [dockerfile-tags](test/06-dockerfile-tags)
 
-Build a Dockerfile that needs an image from a private registry.
+Build an image from a Dockerfile with multiple tags.
 
 
 ```yml

@@ -14,7 +14,6 @@ async function run(): Promise<void> {
 }
 
 async function build(inputs: autogen.InputParameters): Promise<void> {
-    let loggedIn = false;
 
     if (inputs.registry && inputs.username && inputs.password) {
         core.startGroup("Log into private registry");
@@ -28,7 +27,6 @@ async function build(inputs: autogen.InputParameters): Promise<void> {
         ]);
         core.endGroup();
 
-        loggedIn = true;
     } else {
         console.log("Build without logging into private registry")
     }
@@ -54,7 +52,7 @@ async function build(inputs: autogen.InputParameters): Promise<void> {
             process.exit(1);
         }
 
-        const tags = parseTags(inputs, loggedIn);
+        const tags = parseTags(inputs);
 
         await exec.exec("docker", [
             "image",
@@ -68,16 +66,15 @@ async function build(inputs: autogen.InputParameters): Promise<void> {
     }
 }
 
-function parseTags(inputs: autogen.InputParameters, loggedIn: boolean): string[] {
+function parseTags(inputs: autogen.InputParameters): string[] {
     if (!inputs.tags) {
-        return loggedIn ? ["-t", `${inputs.registry}/${inputs.tag}`] : ["-t", inputs.tag];
+        return ["-t", inputs.tag];
     }
 
     const parsedTags = inputs.tags
-        .split("\n")
-        .map(e => loggedIn ? `${inputs.registry}/${e}` : e);
+        .split("\n");
 
-    let tags :string[] = [];
+    let tags: string[] = [];
 
     for (const tag of parsedTags) {
         tags.push("-t");
