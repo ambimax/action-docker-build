@@ -1,0 +1,9 @@
+description: |
+  Build a Dockerfile that needs an image from a private registry.
+
+with:
+  dockerfile: dockerfiles/Dockerfile
+  tags: |
+    hello-world:latest
+    hello-world:c0ffee
+    hello-world:f00babe

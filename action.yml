@@ -21,8 +21,16 @@ inputs:
       The tag to use for the image.
 
       Required for dockerfile building.
+      In @v2 you can use 'tags' to set multiple tags.
     required: false
     default: docker-image:latest
+
+  tags:
+    description: |
+      From @v2 on. If you want to use multiple tags for the image.
+
+      Required for dockerfile building.
+    required: false
 
   registry:
     description: "The private registry that is referenced in a Dockerfile or docker-compose.yml. Required with `username` and `password`."
