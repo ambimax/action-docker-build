@@ -7,6 +7,10 @@ inputs:
     required: false
     default: Dockerfile
 
+  composefile:
+    description: "The docker-compose file to build. Providing this input will ignore: dockerfile, context, tag"
+    required: false
+
   context:
     description: The build context to use.
     required: false
@@ -20,8 +24,16 @@ inputs:
     required: false
     default: docker-image:latest
 
-  composefile:
-    description: "The docker-compose file to build. Providing this input will ignore: dockerfile, context, tag"
+  registry:
+    description: "The private registry that is referenced in a Dockerfile or docker-compose.yml. Required with `username` and `password`."
+    required: false
+
+  username:
+    description: "The login username for the private registry. Required with `registry` and `password`."
+    required: false
+
+  password:
+    description: "The login password for the private registry. Required with `registry` and `username`."
     required: false
 
 branding:

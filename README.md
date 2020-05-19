@@ -78,6 +78,21 @@ Build a docker-compose.yml.
           composefile: docker-compose.yml
           tag: hello-world
 ```
+
+### [dockerfile-private-registry](test/05-dockerfile-private-registry)
+
+Build a Dockerfile that needs an image from a private registry.
+
+
+```yml
+      - uses: ambimax/action-docker-build@v1
+        with:
+          dockerfile: dockerfiles/Dockerfile.fpm
+          tag: node-exec-opt-app-index
+          registry: docker-registry.ambimax.xyz
+          username: test
+          password: test
+```
 <!-- region:examples end -->
 
 
@@ -87,9 +102,12 @@ Build a docker-compose.yml.
 | Name | description | required | default |
 |-|-|-|-|
 | dockerfile | The Dockerfile to build. | false | Dockerfile |
+| composefile | The docker-compose file to build. Providing this input will ignore: dockerfile, context, tag | false |  |
 | context | The build context to use. | false | . |
 | tag | The tag to use for the image.<br><br>Required for dockerfile building.<br> | false | docker-image:latest |
-| composefile | The docker-compose file to build. Providing this input will ignore: dockerfile, context, tag | false |  |
+| registry | The private registry that is referenced in a Dockerfile or docker-compose.yml. Required with `username` and `password`. | false |  |
+| username | The login username for the private registry. Required with `registry` and `password`. | false |  |
+| password | The login password for the private registry. Required with `registry` and `username`. | false |  |
 <!-- region:parameters end -->
 
 
@@ -126,3 +144,4 @@ Once done, commit the dist folder to a new feature branch and create a pull requ
 ## Author Information
 
 - [Tobias Faust](https://github.com/FaustTobias), [ambimax® GmbH](https://ambimax.de)
+- [Dominik Wißler](https://github.com/Wysselbie), [ambimax® GmbH](https://ambimax.de)

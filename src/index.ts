@@ -14,6 +14,22 @@ async function run(): Promise<void> {
 }
 
 async function build(inputs: autogen.InputParameters): Promise<void> {
+
+    if (inputs.registry && inputs.username && inputs.password) {
+        core.startGroup("Log into private registry");
+        await exec.exec("docker", [
+            "login",
+            "--username",
+            inputs.username,
+            "--password",
+            inputs.password,
+            inputs.registry,
+        ]);
+        core.endGroup();
+    } else {
+        console.log("Build without logging into private registry")
+    }
+
     if (inputs.composefile) {
         if (!fs.existsSync(inputs.composefile)) {
             core.setFailed(

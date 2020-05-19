@@ -1,0 +1,3 @@
+FROM docker-registry.ambimax.xyz/node-exec-opt-app-index:test
+
+COPY index.js .
