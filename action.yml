@@ -1,5 +1,7 @@
 name: Build a docker image
-description: Build a docker image
+description: |
+  Build a docker image.
+  v2 is available for using multiple tags and building from an private registry image.
 
 inputs:
   dockerfile:
@@ -17,6 +19,7 @@ inputs:
       The tag to use for the image.
 
       Required for dockerfile building.
+      From v2 on you can use multiple tags with 'tags'.
     required: false
     default: docker-image:latest
 
