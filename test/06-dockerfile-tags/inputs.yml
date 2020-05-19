@@ -1,5 +1,5 @@
 description: |
-  Build a Dockerfile that needs an image from a private registry.
+  Build an image from a Dockerfile with multiple tags.
 
 with:
   dockerfile: dockerfiles/Dockerfile
