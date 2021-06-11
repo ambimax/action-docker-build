@@ -14,9 +14,3 @@ jobs:
       - run: yarn
       - run: yarn build
       - run: yarn test
-      - name: Update artifacts
-        run: |
-          git config --global user.email "github-actions@users.noreply.github.com"
-          git config --global user.name "github-actions"
-          git commit -am "[automated] Update artifacts" || echo "No changes to commit"
-          git push
