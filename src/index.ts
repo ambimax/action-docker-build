@@ -16,7 +16,7 @@ async function run(): Promise<void> {
 async function build(inputs: autogen.InputParameters): Promise<void> {
 
     if (inputs.registry && inputs.username && inputs.password) {
-        core.startGroup("Log into private registry");
+        core.startGroup("Logging into private registry");
         await exec.exec("docker", [
             "login",
             "--username",
