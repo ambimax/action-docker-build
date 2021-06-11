@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.AMBIMAX_GITHUB_TOKEN }}
+          token: ${{ secrets.AMBIMAX_GITHUB_RELEASE_TOKEN }}
       - run: yarn
       - run: yarn build
       - name: Update artifacts
