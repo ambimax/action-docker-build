@@ -13,7 +13,7 @@
     "test": "ts-node --transpile-only scripts/test"
   },
   "devDependencies": {
-    "@actions/core": "^1.2.6",
+    "@actions/core": "^1.9.1",
     "@actions/exec": "^1.0.3",
     "@faustt/eslint-config": "^1.0.0",
     "@rollup/plugin-commonjs": "^11.0.2",
